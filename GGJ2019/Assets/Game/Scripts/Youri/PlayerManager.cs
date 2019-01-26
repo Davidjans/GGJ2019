@@ -18,10 +18,21 @@ public class PlayerManager : MonoBehaviour
     private float m_Money;
     private float m_Cost;
 
+    private bool m_CanPurchase;
+
+    EditorManager m_EM;
+
     void Start()
     {
+        m_EM = GameObject.FindGameObjectWithTag("Manager").GetComponent<EditorManager>();
+
         m_Health = 100;
         m_Money = 200;
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void TakeDamage(float value)
@@ -34,17 +45,8 @@ public class PlayerManager : MonoBehaviour
         m_Money += value;
     }
 
-    public void SpendMoney(float cost)
+    public void PurchaseTrap(float cost)
     {
-        m_Cost = cost;
-        if(m_Money >= m_Cost)
-        {
-            m_Money -= m_Cost;
-            
-        }
-        else
-        {
-            
-        }
+        
     }
 }
