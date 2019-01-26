@@ -135,11 +135,13 @@ public class EnemyWave : MonoBehaviour
     {        
         Vector3 spawnPoint = new Vector3(m_Spawnpoint.transform.position.x + Random.Range(-10, 10), m_Spawnpoint.transform.position.y, m_Spawnpoint.transform.position.z + Random.Range(-10, 10));
         Instantiate(m_Enemys[m_Index], spawnPoint, Quaternion.identity);
+        m_Enemys.RemoveAt(m_Index);
         m_Index += 1;
     }
 
-    private void AddToWave(int s, int a, int b)
+    public void AddToWave(int s, int a, int b)
     {
+
         for(int i  = 0; i < s; i++)
         {
             m_Enemys.Add(m_SmallEnemy);
@@ -151,6 +153,14 @@ public class EnemyWave : MonoBehaviour
         for (int i = 0; i < b; i++)
         {
             m_Enemys.Add(m_BigEnemy);
+        }
+
+        for(int i = 0; i < m_Enemys.Count; i++)
+        {
+            GameObject tempEnemy = m_Enemys[i];
+            int randomIndex = Random.Range(i, m_Enemys.Count);
+            m_Enemys[i] = m_Enemys[randomIndex];
+            m_Enemys[randomIndex] = tempEnemy;
         }
     }
 }
