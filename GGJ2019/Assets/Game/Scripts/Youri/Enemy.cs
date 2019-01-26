@@ -31,10 +31,13 @@ public class Enemy : MonoBehaviour
 
     protected bool m_IsRooted;
 
+    private EnemyWave m_EW;
+
     private void Start()
     {
         m_Goal = GameObject.FindGameObjectWithTag("Goal").transform.position;
         m_Player = GameObject.FindGameObjectWithTag("Player");
+        m_EW = GameObject.FindGameObjectWithTag("Manager").GetComponent<EnemyWave>();
 
         m_NMA = GetComponent<NavMeshAgent>();
 
@@ -69,6 +72,7 @@ public class Enemy : MonoBehaviour
         m_Health -= value;
 		if(m_Health <= 0)
 		{
+            m_EW.RemoveFromList(gameObject);
 			Destroy(gameObject);
 		}
     }

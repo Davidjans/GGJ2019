@@ -34,7 +34,6 @@ public class AverageEnemy : Enemy
     public override void Attack()
     {
         m_AttackTimer += Time.deltaTime;
-        Debug.Log(m_AttackTimer);
         if (m_AttackTimer >= 1)
         {
             GameObject go = Instantiate(m_Spit, transform.position, Quaternion.identity);
