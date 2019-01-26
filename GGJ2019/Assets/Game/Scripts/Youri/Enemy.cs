@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     protected bool m_WithinAttackDistance;
 
-    protected float m_Health;
+    [SerializeField] protected float m_Health;
 
     protected bool m_IsRooted;
 
@@ -67,11 +67,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float value)
     {
         m_Health -= value;
-    }
-
-    public void Die()
-    {
-        Destroy(gameObject);
+		if(m_Health <= 0)
+		{
+			Destroy(gameObject);
+		}
     }
 
     private bool PlayerInVision()
