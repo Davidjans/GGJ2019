@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 314286423758955002}
   - component: {fileID: 5094823384652417703}
   - component: {fileID: 652121822436205131}
+  - component: {fileID: 1940628877338622865}
   m_Layer: 0
   m_Name: DogEnemy
   m_TagString: Untagged
@@ -114,3 +115,17 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1940628877338622865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598679130363767288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3231dc94b87e5a3489e03f429331ad3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Speed: 5
+  m_RootTime: 3

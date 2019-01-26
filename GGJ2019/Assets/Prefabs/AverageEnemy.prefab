@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4391164385425958023}
   - component: {fileID: 2688384465856078318}
   - component: {fileID: 4164837033567127644}
+  - component: {fileID: 8528106358803164183}
   m_Layer: 0
   m_Name: AverageEnemy
   m_TagString: Untagged
@@ -115,3 +116,18 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8528106358803164183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9125032728990246432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8d7559ea9bc5b4eb29bd67a5003b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Speed: 3
+  m_RootTime: 2
+  m_Spit: {fileID: 2822288313684786725, guid: 8ab96a9bbdba6f94695ded9112076cb3, type: 3}
