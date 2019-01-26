@@ -10,8 +10,10 @@ public class AverageEnemy : Enemy
     [SerializeField]
     private GameObject m_Spit;
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
+
         if(m_IsRooted == false)
         {
             Move();
@@ -33,6 +35,7 @@ public class AverageEnemy : Enemy
 
     public override void Attack()
     {
+        m_EnemyState = EnemyState.Attacking;
         m_AttackTimer += Time.deltaTime;
         if (m_AttackTimer >= 1)
         {
