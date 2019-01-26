@@ -12,7 +12,6 @@ public enum PlayerState
 
 public class PlayerManager : MonoBehaviour
 {
-	public float m_Money;
 	private PlayerState m_PlayerState;
 
     private float m_Health;
