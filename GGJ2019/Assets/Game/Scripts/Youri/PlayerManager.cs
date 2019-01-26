@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
 	private PlayerState m_PlayerState;
 
     private float m_Health;
+    public float m_Money;
 
     EditorManager m_EM;
 
@@ -40,5 +41,10 @@ public class PlayerManager : MonoBehaviour
     public void AddMoney(float value)
     {
         m_Money += value;
+    }
+
+    public void PurchaseTrap(float cost)
+    {
+        m_Money -= cost;
     }
 }

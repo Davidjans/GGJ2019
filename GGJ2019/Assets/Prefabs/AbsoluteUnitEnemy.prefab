@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8102797498352403672}
   - component: {fileID: 5196176603744138327}
   - component: {fileID: 3342193396421615726}
+  - component: {fileID: 3848073949934768207}
   m_Layer: 0
   m_Name: AbsoluteUnitEnemy
   m_TagString: Untagged
@@ -114,3 +115,17 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3848073949934768207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032354506324556951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0958998792cc3e644bc5a2ea128f0579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Speed: 2
+  m_RootTime: 1
