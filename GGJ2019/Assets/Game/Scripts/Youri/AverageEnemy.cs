@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public enum EnemyState{
     Idle,
+    walking,
     Attacking,
     Dying
 };
@@ -25,10 +26,14 @@ public class AverageEnemy : MonoBehaviour, IEnemy
     private PlayerController m_PlayerController;
 
     private float m_AttackTimer;
+    private float m_RootTimer;
 
     private bool m_WithinAttackDistance;
 
-    private float m_Health; 
+    private float m_Health;
+
+    private bool m_IsRooted;
+
 
     private void Start()
     {
@@ -38,6 +43,7 @@ public class AverageEnemy : MonoBehaviour, IEnemy
         m_NMA = GetComponent<NavMeshAgent>();
 
         m_AttackTimer = 0;
+        m_RootTimer = 0;
         m_PlayerController = GetComponent<PlayerController>();
 
         m_NMA.speed = m_Speed;
@@ -45,7 +51,18 @@ public class AverageEnemy : MonoBehaviour, IEnemy
 
     private void Update()
     {
-        Move();
+        if(m_IsRooted == false)
+        {
+            Move();
+        }
+        else
+        {
+            m_RootTimer += Time.deltaTime;
+            if(m_RootTimer >= 2)
+            {
+                m_IsRooted = false;
+            }
+        }
 
         if(m_WithinAttackDistance == true)
         {
@@ -120,6 +137,11 @@ public class AverageEnemy : MonoBehaviour, IEnemy
         }
 
         return false;
+    }
+
+    public void RootEnemy()
+    {
+        m_IsRooted = true;
     }
 }
 
