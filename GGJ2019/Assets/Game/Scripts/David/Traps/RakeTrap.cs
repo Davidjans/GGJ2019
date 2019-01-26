@@ -2,18 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TrapState
+public class RakeTrap : MonoBehaviour
 {
-	Ready,
-	NotReady
-}
-
-public class BearTrap : MonoBehaviour
-{
-	
 	[SerializeField] private float m_Damage;
 	private bool m_CurrentlyActive = true;
-	private float m_Timer = 6;
+	private float m_Timer = 8;
 	private TrapState m_TrapState;
 	private Animator m_Animator;
 
@@ -31,11 +24,11 @@ public class BearTrap : MonoBehaviour
 	{
 		if (!m_CurrentlyActive)
 		{
-			m_Timer = m_Timer -Time.deltaTime;
+			m_Timer = m_Timer - Time.deltaTime;
 		}
 		if (m_Timer <= 0)
 		{
-			m_Timer = 6;
+			m_Timer = 8;
 			m_CurrentlyActive = true;
 			SetTrapState(TrapState.Ready);
 		}
@@ -46,14 +39,11 @@ public class BearTrap : MonoBehaviour
 	{
 		if (other.CompareTag("Enemy") && m_CurrentlyActive)
 		{
-			Debug.Log("hallo");
 			Enemy enemyHit = other.GetComponent<Enemy>();
 			enemyHit.TakeDamage(m_Damage);
-			enemyHit.RootEnemy();
-			m_Timer = 6;
+			m_Timer = 8;
 			SetTrapState(TrapState.NotReady);
 			m_CurrentlyActive = false;
-			Debug.Log("Hallo2");
 		}
 	}
 }
