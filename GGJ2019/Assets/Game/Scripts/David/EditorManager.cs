@@ -8,6 +8,7 @@ public class EditorManager : MonoBehaviour
 	public int CurrentTrap;
 	public bool m_InEditorMode;
 	public List<GameObject> m_Traps;
+	public PlayerManager m_PlayerManager;
 	[SerializeField] private TextMeshProUGUI m_EditorModeText;
 	
     // Start is called before the first frame update

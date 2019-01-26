@@ -27,6 +27,10 @@ public class PlaceTraps : MonoBehaviour
 				TrapSpot trapSpot = m_Hit.transform.GetComponent<TrapSpot>();
 				trapSpot.m_Timer = 0.5f;
 				trapSpot.m_BeingLookedAt = true;
+				if (Input.GetMouseButtonDown(0))
+				{
+					trapSpot.PurchaseTrap();
+				}
 			}
 		}
     }

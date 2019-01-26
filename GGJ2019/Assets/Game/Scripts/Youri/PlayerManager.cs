@@ -12,13 +12,10 @@ public enum PlayerState
 
 public class PlayerManager : MonoBehaviour
 {
-    private PlayerState m_PlayerState;
+	public float m_Money;
+	private PlayerState m_PlayerState;
 
     private float m_Health;
-    private float m_Money;
-    private float m_Cost;
-
-    private bool m_CanPurchase;
 
     EditorManager m_EM;
 
@@ -43,10 +40,5 @@ public class PlayerManager : MonoBehaviour
     public void AddMoney(float value)
     {
         m_Money += value;
-    }
-
-    public void PurchaseTrap(float cost)
-    {
-        
     }
 }
