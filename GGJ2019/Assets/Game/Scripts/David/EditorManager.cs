@@ -6,9 +6,10 @@ using TMPro;
 public class EditorManager : MonoBehaviour
 {
 	public int CurrentTrap;
+	public bool m_InEditorMode;
 	[SerializeField] private List<GameObject> m_Traps;
 	[SerializeField] private TextMeshProUGUI m_EditorModeText;
-	private bool m_InEditorMode;
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class EditorManager : MonoBehaviour
 		if (m_InEditorMode)
 		{
 			m_EditorModeText.text = "In EditorMode";
+			TrapSelect();
 		}
 		else if (!m_InEditorMode)
 		{
