@@ -42,7 +42,15 @@ public class EnemyWave : MonoBehaviour
     private void Update()
     {
         m_Timer += Time.deltaTime;
-        
+
+        for (int i = 0; i < m_CurrentEnemy.Count; i++)
+        {
+            if(m_CurrentEnemy[i] == null)
+            {
+                m_CurrentEnemy.RemoveAt(i);
+
+            }
+        }
 
         if (m_Timer >= 1f)
         {
