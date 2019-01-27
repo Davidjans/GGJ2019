@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5196176603744138327}
   - component: {fileID: 3342193396421615726}
   - component: {fileID: 3848073949934768207}
+  - component: {fileID: 88375262121941409}
   m_Layer: 0
   m_Name: AbsoluteUnitEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,3 +130,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 2
   m_RootTime: 1
+  m_KnockbackForce: 0
+  m_Health: 0
+--- !u!95 &88375262121941409
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032354506324556951}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
