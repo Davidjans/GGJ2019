@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 	private void Start()
 	{
 		m_Rigidbody = GetComponent<Rigidbody>();
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	void Update()
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
 		{
 			m_RightPressed = false;
 		}
-		if (Input.GetKey(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			m_JumpPressed = true;
 		}
@@ -81,28 +82,29 @@ public class PlayerController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		// moving depending on the keyinput
+		m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y,0);
+		m_Rigidbody.angularVelocity = new Vector3(0, m_Rigidbody.velocity.y, 0);
 		if (m_ForwardPressed)
 		{
-			transform.Translate(Vector3.forward * m_ForwardsPlayerSpeed * Time.deltaTime);
+			m_Rigidbody.AddForce(transform.forward * (m_ForwardsPlayerSpeed * Time.deltaTime), ForceMode.Impulse);
 
 		}
 		if (m_BackPressed)
 		{
-			transform.Translate(Vector3.forward * -m_BackwardsPlayerSpeed * Time.deltaTime);
+			m_Rigidbody.AddForce(transform.forward * (-m_BackwardsPlayerSpeed * Time.deltaTime), ForceMode.Impulse);
 
 		}
 		if (m_LeftPressed)
 		{
-			transform.Translate(Vector3.left * m_SidewaysPlayerSpeed * Time.deltaTime);
+			m_Rigidbody.AddForce(transform.right * (-m_SidewaysPlayerSpeed * Time.deltaTime), ForceMode.Impulse);
 		}
 		if (m_RightPressed)
 		{
-			transform.Translate(Vector3.right * m_SidewaysPlayerSpeed * Time.deltaTime);
+			m_Rigidbody.AddForce(transform.right * (m_SidewaysPlayerSpeed * Time.deltaTime), ForceMode.Impulse);
 		}
 		if (m_JumpPressed && m_IsGrounded == true)
 		{
-			m_Rigidbody.AddForce(Vector3.up * m_JumpPlayerSpeed, ForceMode.Impulse);
+			m_Rigidbody.AddForce(Vector3.up * m_JumpPlayerSpeed * Time.deltaTime, ForceMode.Impulse);
 		}
 	}
 }

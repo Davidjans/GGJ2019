@@ -9,13 +9,6 @@ public class EditorManager : MonoBehaviour
 	public bool m_InEditorMode;
 	public List<GameObject> m_Traps;
 	public PlayerManager m_PlayerManager;
-	[SerializeField] private TextMeshProUGUI m_EditorModeText;
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -26,12 +19,7 @@ public class EditorManager : MonoBehaviour
 
 		if (m_InEditorMode)
 		{
-			m_EditorModeText.text = "In EditorMode";
 			TrapSelect();
-		}
-		else if (!m_InEditorMode)
-		{
-			m_EditorModeText.text = "";
 		}
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7774387808116540049}
   - component: {fileID: 851289715}
   - component: {fileID: 851289714}
+  - component: {fileID: 8144546865278118491}
   m_Layer: 0
   m_Name: WallDoor
   m_TagString: Untagged
@@ -90,8 +91,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3295889, y: 3, z: 0.2844491}
-  m_Center: {x: 0.83520555, y: 1.5, z: 0.0008764267}
+  m_Size: {x: 0.18002212, y: 3, z: 1.267605}
+  m_Center: {x: 0.90998894, y: 1.5, z: 0.0008764267}
 --- !u!65 &851289714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -103,5 +104,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3367567, y: 3, z: 0.2844491}
-  m_Center: {x: -0.83162165, y: 1.5, z: 0.0008764267}
+  m_Size: {x: 0.1914028, y: 3, z: 1.267605}
+  m_Center: {x: -0.9042986, y: 1.5, z: 0.0008764267}
+--- !u!65 &8144546865278118491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851289713}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
