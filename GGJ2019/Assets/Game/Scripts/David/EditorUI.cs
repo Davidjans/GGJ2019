@@ -1,21 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class EditorUI : MonoBehaviour
 {
 	[SerializeField] private EditorManager m_EditorManager;
 	[SerializeField] private List<GameObject> m_Selected;
 	[SerializeField] private GameObject m_EditorUI;
+	[SerializeField] private TextMeshProUGUI m_MoneyText;
+	[SerializeField] private PlayerManager m_PlayerManager;
+	[SerializeField] private Slider m_Slider;
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		m_Slider.maxValue = m_PlayerManager.m_MaxHealth;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		m_MoneyText.text = m_PlayerManager.m_Money.ToString();
+		m_Slider.value = m_PlayerManager.m_Health;
 		if (m_EditorManager.m_InEditorMode == true)
 		{
 			m_EditorUI.SetActive(true);
