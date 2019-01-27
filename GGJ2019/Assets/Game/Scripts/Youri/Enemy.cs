@@ -10,10 +10,12 @@ public enum EnemyState
     Attacking,
     Dying
 };
+
+[RequireComponent(typeof(Rigidbody))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    protected float m_Speed, m_RootTime;
+    protected float m_Speed, m_RootTime, m_KnockbackForce;
 
     protected Vector3 m_Goal;
 
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
 
     protected NavMeshAgent m_NMA;
     protected PlayerManager m_PlayerManager;
+    protected Rigidbody m_RigidBody;
 
     protected float m_AttackTimer;
     protected float m_RootTimer;
@@ -31,6 +34,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float m_Health;
 
     protected bool m_IsRooted;
+    protected bool m_IsStunned;
 
     private EnemyWave m_EW;
 
@@ -48,6 +52,7 @@ public class Enemy : MonoBehaviour
         m_Animator = GetComponent<Animator>();
 
         m_NMA = GetComponent<NavMeshAgent>();
+        m_RigidBody = GetComponent<Rigidbody>();
 
         m_AttackTimer = 0;
         m_RootTimer = 0;
@@ -144,5 +149,17 @@ public class Enemy : MonoBehaviour
     public void RootEnemy()
     {
         m_IsRooted = true;
+    }
+
+    public void StunEnemy()
+    {
+        m_IsStunned = true;
+    }
+
+    public void ApplyKnockback(Vector3 position)
+    {
+        Vector3 direction = transform.position - position;
+
+        m_RigidBody.AddForce(direction * m_KnockbackForce);
     }
 }

@@ -8,16 +8,24 @@ public class BigEnemy : Enemy
     {
         base.Update();
 
-        if (m_IsRooted == false)
+        if (m_IsRooted == false && m_IsStunned == false)
         {
             Move();
         }
-        else
+        else if (m_IsRooted == true && m_IsStunned == false)
         {
             m_RootTimer += Time.deltaTime;
             if (m_RootTimer >= m_RootTime)
             {
                 m_IsRooted = false;
+            }
+        }
+        else if (m_IsRooted == false && m_IsStunned == true)
+        {
+            m_RootTimer += Time.deltaTime;
+            if (m_RootTimer >= 2)
+            {
+                m_IsStunned = false;
             }
         }
 
