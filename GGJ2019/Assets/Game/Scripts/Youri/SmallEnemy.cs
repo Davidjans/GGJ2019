@@ -7,8 +7,10 @@ using UnityEngine.AI;
 public class SmallEnemy : Enemy
 {    
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
+
         if (m_IsRooted == false)
         {
             Move();
@@ -30,6 +32,7 @@ public class SmallEnemy : Enemy
 
     public override void Attack()
     {
+        m_EnemyState = EnemyState.Attacking;
         m_AttackTimer += Time.deltaTime;
 
         if (m_AttackTimer >= 0.5)

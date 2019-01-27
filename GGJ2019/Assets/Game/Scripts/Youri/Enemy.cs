@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public enum EnemyState
 {
-    Idle,
-    walking,
+    Idle = 0,
+    Walking,
     Attacking,
     Dying
 };
@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     protected float m_AttackTimer;
     protected float m_RootTimer;
+    private float m_IdleTimer;
 
     protected bool m_WithinAttackDistance;
 
@@ -33,19 +34,42 @@ public class Enemy : MonoBehaviour
 
     private EnemyWave m_EW;
 
+    protected EnemyState m_EnemyState;
+
+    protected Animator m_Animator;
+
     private void Start()
     {
+        m_EnemyState = EnemyState.Idle;
+        
         m_Goal = GameObject.FindGameObjectWithTag("Goal").transform.position;
         m_Player = GameObject.FindGameObjectWithTag("Player");
-        m_EW = GameObject.FindGameObjectWithTag("Manager").GetComponent<EnemyWave>();
+        m_EW = GameObject.FindGameObjectWithTag("Spawner").GetComponent<EnemyWave>();
+        m_Animator = GetComponent<Animator>();
 
         m_NMA = GetComponent<NavMeshAgent>();
 
         m_AttackTimer = 0;
         m_RootTimer = 0;
+        m_IdleTimer = 0;
         m_PlayerManager = GetComponent<PlayerManager>();
 
         m_NMA.speed = m_Speed;
+    }
+
+    public virtual void Update()
+    {
+        if(m_EnemyState != EnemyState.Idle)
+        {
+            m_IdleTimer += Time.deltaTime;
+            if(m_IdleTimer >= 3f)
+            {
+                m_EnemyState = EnemyState.Idle;
+                m_IdleTimer = 0;
+            }
+        }
+
+        m_Animator.SetInteger("EnemyState", (int)m_EnemyState);
     }
 
     public virtual void Attack()
@@ -55,6 +79,8 @@ public class Enemy : MonoBehaviour
 
     public void Move()
     {
+        m_EnemyState = EnemyState.Walking;
+
         if (PlayerInVision())
         {
             m_NMA.destination = m_Player.transform.position;
@@ -72,10 +98,15 @@ public class Enemy : MonoBehaviour
         m_Health -= value;
 		if(m_Health <= 0)
 		{
+<<<<<<< HEAD
 			if(m_EW != null)
 			{
 				m_EW.RemoveFromList(gameObject);
 			}
+=======
+            m_EW.RemoveFromList(gameObject);
+            m_EnemyState = EnemyState.Dying;
+>>>>>>> master
 			Destroy(gameObject);
 		}
     }

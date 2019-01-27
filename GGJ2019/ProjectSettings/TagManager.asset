@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - TrapSpot
   - Spawner
+  - Manager
   layers:
   - Default
   - TransparentFX
