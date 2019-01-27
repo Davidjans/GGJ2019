@@ -20,10 +20,15 @@ public class Spit : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
-            //pc.TakeDamage();
+            PlayerManager pc = collision.gameObject.GetComponent<PlayerManager>();
+            pc.TakeDamage(20);
         }
-        if(collision.gameObject.tag != "Enemy")
+        else if(collision.gameObject.tag == "Door")
+        {
+            DoorHealth dh = collision.gameObject.GetComponent<DoorHealth>();
+            dh.TakeDamage(10);
+        }
+        if (collision.gameObject.tag != "Enemy")
         {
             Destroy(gameObject);
         }

@@ -35,13 +35,17 @@ public class AverageEnemy : Enemy
             }
         }
 
-        if(m_WithinAttackDistance == true)
+        if(m_PlayerWithinAttackDistance == true)
         {
-            Attack();
+            Attack(m_Player.transform.position, true);
+        }
+        else if (m_DoorWithinAttackDistance == true)
+        {
+            Attack(m_Goal, false);
         }
     }
 
-    public override void Attack()
+    public override void Attack(Vector3 position, bool player)
     {
         m_EnemyState = EnemyState.Attacking;
         m_AttackTimer += Time.deltaTime;
@@ -49,7 +53,7 @@ public class AverageEnemy : Enemy
         {
             GameObject go = Instantiate(m_Spit, transform.position, Quaternion.identity);
             Spit spit = go.GetComponent<Spit>();
-            spit.SetDirection(m_Player.transform.position - transform.position);
+            spit.SetDirection(position - transform.position);
             m_AttackTimer = 0;
         }
     }

@@ -29,20 +29,31 @@ public class BigEnemy : Enemy
             }
         }
 
-        if (m_WithinAttackDistance == true)
+        if (m_PlayerWithinAttackDistance == true)
         {
-            Attack();
+            Attack(m_Player.transform.position, true);
+        }
+        else if (m_DoorWithinAttackDistance == true)
+        {
+            Attack(m_Goal, false);
         }
     }
 
-    public override void Attack()
+    public override void Attack(Vector3 pos, bool player)
     {
         m_EnemyState = EnemyState.Attacking;
         m_AttackTimer += Time.deltaTime;
        
         if (m_AttackTimer >= 3)
         {
-            m_PlayerManager.TakeDamage(30);
+            if (player)
+            {
+                m_PlayerManager.TakeDamage(30);
+            }
+            else if (!player)
+            {
+                m_DoorHealth.TakeDamage(15);
+            }
             m_AttackTimer = 0;
         }
     }

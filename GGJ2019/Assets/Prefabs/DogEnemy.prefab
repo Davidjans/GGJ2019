@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5094823384652417703}
   - component: {fileID: 652121822436205131}
   - component: {fileID: 1940628877338622865}
+  - component: {fileID: 1555807078227597319}
   m_Layer: 0
   m_Name: DogEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,3 +130,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 5
   m_RootTime: 3
+  m_KnockbackForce: 0
+  m_Health: 0
+--- !u!95 &1555807078227597319
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598679130363767288}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

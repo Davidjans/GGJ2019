@@ -33,7 +33,7 @@ public class EnemyWave : MonoBehaviour
 
         m_Index = 0;
         m_Timer = 0;
-        m_TimeBetweenWaves = 5;
+        m_TimeBetweenWaves = 60;
 
         m_Spawnpoint = GameObject.FindGameObjectWithTag("Spawner");
 

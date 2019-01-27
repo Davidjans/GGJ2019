@@ -23,13 +23,14 @@ public class Enemy : MonoBehaviour
 
     protected NavMeshAgent m_NMA;
     protected PlayerManager m_PlayerManager;
+    protected DoorHealth m_DoorHealth;
     protected Rigidbody m_RigidBody;
 
     protected float m_AttackTimer;
     protected float m_RootTimer;
     private float m_IdleTimer;
 
-    protected bool m_WithinAttackDistance;
+    protected bool m_PlayerWithinAttackDistance, m_DoorWithinAttackDistance;
 
     [SerializeField] protected float m_Health;
 
@@ -57,7 +58,8 @@ public class Enemy : MonoBehaviour
         m_AttackTimer = 0;
         m_RootTimer = 0;
         m_IdleTimer = 0;
-        m_PlayerManager = GetComponent<PlayerManager>();
+        m_PlayerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        m_DoorHealth = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorHealth>();
 
         m_NMA.speed = m_Speed;
     }
@@ -77,7 +79,7 @@ public class Enemy : MonoBehaviour
         m_Animator.SetInteger("EnemyState", (int)m_EnemyState);
     }
 
-    public virtual void Attack()
+    public virtual void Attack(Vector3 position, bool player)
     {
 
     }
@@ -123,15 +125,23 @@ public class Enemy : MonoBehaviour
             if (Physics.Raycast(transform.position, rayDirection, out hit, 10f))
             {
                 Debug.DrawRay(transform.position, rayDirection, Color.red);
-                if (Vector3.Distance(transform.position, hit.transform.position) < 10f && hit.transform.tag == "Player")
+                if (Vector3.Distance(transform.position, hit.transform.position) < 10f)
                 {
-                    Debug.DrawRay(transform.position, rayDirection, Color.green);
-                    m_WithinAttackDistance = true;
+                    if(hit.collider.tag == "Player")
+                    {
+                        m_PlayerWithinAttackDistance = true;
+                    }
+                    else if(hit.collider.tag == "Door")
+                    {
+                        m_DoorWithinAttackDistance = true;
+                    }
+                    else
+                    {
+                        m_PlayerWithinAttackDistance = false;
+                        m_DoorWithinAttackDistance = false;
+                    }
                 }
-                else
-                {
-                    m_WithinAttackDistance = false;
-                }
+                
                 if (hit.transform.tag == "Player")
                 {
                     return true;
