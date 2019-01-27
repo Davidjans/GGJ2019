@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         
         m_Goal = GameObject.FindGameObjectWithTag("Goal").transform.position;
         m_Player = GameObject.FindGameObjectWithTag("Player");
-        m_EW = GameObject.FindGameObjectWithTag("Spawner").GetComponent<EnemyWave>();
+        m_EW = GameObject.FindGameObjectWithTag("Manager").GetComponent<EnemyWave>();
         m_Animator = GetComponent<Animator>();
 
         m_NMA = GetComponent<NavMeshAgent>();
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         m_RootTimer = 0;
         m_IdleTimer = 0;
         m_PlayerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        m_DoorHealth = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorHealth>();
+        m_DoorHealth = GameObject.FindGameObjectWithTag("Goal").GetComponent<DoorHealth>();
 
         m_NMA.speed = m_Speed;
     }
@@ -104,11 +104,8 @@ public class Enemy : MonoBehaviour
     {
         m_Health -= value;
 		if(m_Health <= 0)
-		{
-			if(m_EW != null)
-			{
-				m_EW.RemoveFromList(gameObject);
-			}
+		{						
+            Debug.Log("Removed");
             m_EnemyState = EnemyState.Dying;
 			Destroy(gameObject);
 		}
