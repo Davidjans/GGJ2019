@@ -22,7 +22,7 @@ public class EnemyWave : MonoBehaviour
     [SerializeField] private float m_TimeUntillSpawn;
     [SerializeField] private float m_TimeBetweenWaves;
 
-    private GameObject m_Spawnpoint;
+    [SerializeField] private List<GameObject> m_Spawnpoint;
 
     private void Start()
     {
@@ -36,8 +36,6 @@ public class EnemyWave : MonoBehaviour
         m_Index = 0;
         m_Timer = 0;
         m_TimeBetweenWaves = 60;
-
-        m_Spawnpoint = GameObject.FindGameObjectWithTag("Spawner");
 
     }
 
@@ -74,7 +72,8 @@ public class EnemyWave : MonoBehaviour
     {        
         if(m_Index <= m_CurrentEnemy.Count)
         {
-            Vector3 spawnPoint = new Vector3(m_Spawnpoint.transform.position.x + Random.Range(-10, 10), m_Spawnpoint.transform.position.y, m_Spawnpoint.transform.position.z + Random.Range(-10, 10));
+			int i = Random.Range(0, m_Spawnpoint.Count);
+            Vector3 spawnPoint = new Vector3(m_Spawnpoint[i].transform.position.x + Random.Range(-10, 10), m_Spawnpoint[i].transform.position.y, m_Spawnpoint[i].transform.position.z + Random.Range(-10, 10));
             m_CurrentEnemy.Add(Instantiate<GameObject>(m_Enemys[m_Index], spawnPoint, Quaternion.identity));
             m_Index += 1;
 
