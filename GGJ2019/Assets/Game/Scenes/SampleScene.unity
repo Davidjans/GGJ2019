@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxHealth: 0
-  m_Health: 0
+  m_Health: 1e+9
   m_Money: 200
 --- !u!114 &637593352
 MonoBehaviour:
@@ -993,6 +993,8 @@ MonoBehaviour:
   m_Timer: 0
   m_TimeUntillSpawn: 0
   m_TimeBetweenWaves: 0
+  m_Spawnpoint:
+  - {fileID: 2000770555}
 --- !u!4 &1482977546
 Transform:
   m_ObjectHideFlags: 0
