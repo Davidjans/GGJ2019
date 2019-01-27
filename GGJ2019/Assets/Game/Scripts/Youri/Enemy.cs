@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public enum EnemyState
 {
-    Idle = 0,
     Walking,
     Attacking,
     Dying
@@ -45,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        m_EnemyState = EnemyState.Idle;
+        m_EnemyState = EnemyState.Walking;
         
         m_Goal = GameObject.FindGameObjectWithTag("Goal").transform.position;
         m_Player = GameObject.FindGameObjectWithTag("Player");
@@ -66,16 +65,6 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        if(m_EnemyState != EnemyState.Idle)
-        {
-            m_IdleTimer += Time.deltaTime;
-            if(m_IdleTimer >= 3f)
-            {
-                m_EnemyState = EnemyState.Idle;
-                m_IdleTimer = 0;
-            }
-        }
-
         m_Animator.SetInteger("EnemyState", (int)m_EnemyState);
     }
 

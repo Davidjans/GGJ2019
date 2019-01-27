@@ -53,6 +53,10 @@ public class PlayerManager : MonoBehaviour
     public void TakeDamage(float value)
     {
         m_Health -= value;
+		if(m_Health <= 0)
+		{
+			Destroy(gameObject);
+		}
     }
 
     public void AddMoney(float value)
