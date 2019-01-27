@@ -102,8 +102,6 @@ public class Enemy : MonoBehaviour
 			{
 				m_EW.RemoveFromList(gameObject);
 			}
-
-            m_EW.RemoveFromList(gameObject);
             m_EnemyState = EnemyState.Dying;
 			Destroy(gameObject);
 		}
