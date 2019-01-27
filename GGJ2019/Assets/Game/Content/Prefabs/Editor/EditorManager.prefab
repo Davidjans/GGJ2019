@@ -48,6 +48,8 @@ MonoBehaviour:
   m_InEditorMode: 0
   m_Traps:
   - {fileID: 649499898395619031, guid: 291c063c1706a9d47b60f8597e85246e, type: 3}
+  - {fileID: 5395002642078433314, guid: 705153c85ad383e41a7044173ed6f7a8, type: 3}
+  - {fileID: 5143248277790892585, guid: 9fe29fe64a3a0124b8577edbc291a733, type: 3}
   m_PlayerManager: {fileID: 0}
   m_EditorModeText: {fileID: 0}
 --- !u!114 &1923856232642767122

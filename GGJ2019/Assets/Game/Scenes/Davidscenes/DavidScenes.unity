@@ -781,11 +781,6 @@ PrefabInstance:
       propertyPath: m_EditorManager
       value: 
       objectReference: {fileID: 1806382218}
-    - target: {fileID: 5984258165726567772, guid: 2cb0da2570b93854c9e86c0b17da773c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cb0da2570b93854c9e86c0b17da773c, type: 3}
 --- !u!1001 &1923856231177182622
@@ -857,11 +852,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923856232642767124, guid: 0773945488c36c34786adfe5c08ec5e9,
         type: 3}
-      propertyPath: m_Traps.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923856232642767124, guid: 0773945488c36c34786adfe5c08ec5e9,
-        type: 3}
       propertyPath: m_PlayerManager
       value: 
       objectReference: {fileID: 95940057}
@@ -870,18 +860,6 @@ PrefabInstance:
       propertyPath: m_EditorModeText
       value: 
       objectReference: {fileID: 42966240}
-    - target: {fileID: 1923856232642767124, guid: 0773945488c36c34786adfe5c08ec5e9,
-        type: 3}
-      propertyPath: m_Traps.Array.data[1]
-      value: 
-      objectReference: {fileID: 5395002642078433314, guid: 705153c85ad383e41a7044173ed6f7a8,
-        type: 3}
-    - target: {fileID: 1923856232642767124, guid: 0773945488c36c34786adfe5c08ec5e9,
-        type: 3}
-      propertyPath: m_Traps.Array.data[2]
-      value: 
-      objectReference: {fileID: 5143248277790892585, guid: 9fe29fe64a3a0124b8577edbc291a733,
-        type: 3}
     - target: {fileID: 1923856232642767122, guid: 0773945488c36c34786adfe5c08ec5e9,
         type: 3}
       propertyPath: m_Selected.Array.data[0]
@@ -1104,16 +1082,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2731293227042382157, guid: 08e7aaaed4810cc40b89e676c5aa2a10,
-        type: 3}
-      propertyPath: m_Name
-      value: Rake
-      objectReference: {fileID: 0}
-    - target: {fileID: 2731293228807303080, guid: 08e7aaaed4810cc40b89e676c5aa2a10,
-        type: 3}
-      propertyPath: m_Name
-      value: RakeSelect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e7aaaed4810cc40b89e676c5aa2a10, type: 3}
