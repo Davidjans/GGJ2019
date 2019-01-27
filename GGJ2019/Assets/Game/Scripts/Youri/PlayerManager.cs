@@ -14,16 +14,17 @@ public class PlayerManager : MonoBehaviour
 {
 	private PlayerState m_PlayerState;
 
-    private float m_Health;
-    public float m_Money;
+	public float m_MaxHealth;
+	public float m_Health;
+	
+	public float m_Money;
 
     EditorManager m_EM;
 
     void Start()
     {
-        m_EM = GameObject.FindGameObjectWithTag("Manager").GetComponent<EditorManager>();
-
-        m_Health = 100;
+		m_Health = m_MaxHealth;
+		m_EM = GameObject.FindGameObjectWithTag("Manager").GetComponent<EditorManager>();
         m_Money = 200;
     }
 
