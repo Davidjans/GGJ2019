@@ -12,20 +12,22 @@ public class EnemyWave : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_EnemyCount, m_WaveCount, m_TimerText;
 
-    [SerializeField] private List<GameObject> m_Enemys;
+    private List<GameObject> m_Enemys;
+    public List<GameObject> m_CurrentEnemy;
 
-    private int m_Index;
+    public int m_Index;
     [SerializeField] private int m_CurrentWave;
 
     [SerializeField] private float m_Timer;
     [SerializeField] private float m_TimeUntillSpawn;
     [SerializeField] private float m_TimeBetweenWaves;
 
-    private GameObject m_Spawnpoint;
+    [SerializeField] private List<GameObject> m_Spawnpoint;
 
     private void Start()
     {
         m_Enemys = new List<GameObject>();
+        m_CurrentEnemy = new List<GameObject>();
 
         m_CurrentWave = 0;
 
@@ -35,14 +37,22 @@ public class EnemyWave : MonoBehaviour
         m_Timer = 0;
         m_TimeBetweenWaves = 60;
 
-        m_Spawnpoint = GameObject.FindGameObjectWithTag("Spawner");
-
     }
 
     private void Update()
     {
         m_Timer += Time.deltaTime;
-        if(m_Timer >= 1f)
+
+        for (int i = 0; i < m_CurrentEnemy.Count; i++)
+        {
+            if(m_CurrentEnemy[i] == null)
+            {
+                m_CurrentEnemy.RemoveAt(i);
+
+            }
+        }
+
+        if (m_Timer >= 1f)
         {
             SwitchBetweenWaves();
         }
@@ -59,17 +69,24 @@ public class EnemyWave : MonoBehaviour
             }
         }
 
-        m_EnemyCount.text = "" + m_Enemys.Count;
+        m_EnemyCount.text = "" + m_CurrentEnemy.Count;
         m_WaveCount.text = "" + m_CurrentWave + "/7";
         m_TimerText.text = "" + Mathf.Round(m_TimeBetweenWaves -= Time.deltaTime).ToString();
+
+        Debug.Log(m_CurrentEnemy.Count);
     }
 
     private void SpawnWave()
     {        
-        Vector3 spawnPoint = new Vector3(m_Spawnpoint.transform.position.x + Random.Range(-10, 10), m_Spawnpoint.transform.position.y, m_Spawnpoint.transform.position.z + Random.Range(-10, 10));
-        Instantiate<GameObject>(m_Enemys[m_Index], spawnPoint, Quaternion.identity);
-        m_Index += 1;
-        Debug.Log("It sucseeded onii-chan");
+        if(m_Index <= m_CurrentEnemy.Count)
+        {
+			int i = Random.Range(0, m_Spawnpoint.Count);
+            Vector3 spawnPoint = new Vector3(m_Spawnpoint[i].transform.position.x + Random.Range(-1, 1), m_Spawnpoint[i].transform.position.y, m_Spawnpoint[i].transform.position.z + Random.Range(-1, 1));
+            m_CurrentEnemy.Add(Instantiate<GameObject>(m_Enemys[m_Index], spawnPoint, Quaternion.identity));
+            m_Index += 1;
+
+            Debug.Log("It sucseeded onii-chan");
+        }      
     }
 
     public void AddToWave(int s, int a, int b)
@@ -97,10 +114,21 @@ public class EnemyWave : MonoBehaviour
         }
     }
 
-    public void RemoveFromList(GameObject go)
+    public void UpdateEnemyCountText()
     {
-        m_Enemys.Remove(go);
+        m_EnemyCount.text = "" + m_Enemys.Count;
     }
+
+    //public void RemoveFromList(GameObject go)
+    //{
+    //    for (int i = 0; i < m_CurrentEnemy.Count; i++)
+    //    {
+    //        if (m_CurrentEnemy[i] == null)
+    //        {
+    //            m_CurrentEnemy.RemoveAt(i);
+    //        }
+    //    }
+    //}
 
     private void SwitchBetweenWaves()
     {

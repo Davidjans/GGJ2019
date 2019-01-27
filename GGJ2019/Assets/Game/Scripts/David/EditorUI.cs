@@ -11,18 +11,22 @@ public class EditorUI : MonoBehaviour
 	[SerializeField] private GameObject m_EditorUI;
 	[SerializeField] private TextMeshProUGUI m_MoneyText;
 	[SerializeField] private PlayerManager m_PlayerManager;
-	[SerializeField] private Slider m_Slider;
+	[SerializeField] private DoorHealth m_DoorHealth;
+	[SerializeField] private Slider m_HealthSlider;
+	[SerializeField] private Slider m_DoorHealthSlider;
 	// Start is called before the first frame update
 	void Start()
 	{
-		m_Slider.maxValue = m_PlayerManager.m_MaxHealth;
+		m_HealthSlider.maxValue = m_PlayerManager.m_MaxHealth;
+		m_DoorHealthSlider.maxValue = m_DoorHealth.m_MaxHealth;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		m_MoneyText.text = m_PlayerManager.m_Money.ToString();
-		m_Slider.value = m_PlayerManager.m_Health;
+		m_HealthSlider.value = m_PlayerManager.m_Health;
+		m_DoorHealthSlider.value = m_DoorHealth.m_Health;
 		if (m_EditorManager.m_InEditorMode == true)
 		{
 			m_EditorUI.SetActive(true);

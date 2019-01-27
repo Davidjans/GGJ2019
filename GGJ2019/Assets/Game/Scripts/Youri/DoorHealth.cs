@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorHealth : MonoBehaviour
 {
-    private float m_Health;
+	public float m_MaxHealth;
+    public float m_Health;
 
     void Start()
     {
-        
+		m_Health = m_MaxHealth;
     }
 
     void Update()
     {
         if(m_Health <= 0)
         {
-            Destroy(gameObject);
+			SceneManager.LoadScene("DoorDown");
         }
     }
 
