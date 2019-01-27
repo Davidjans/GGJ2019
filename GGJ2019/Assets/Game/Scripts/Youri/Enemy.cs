@@ -72,7 +72,10 @@ public class Enemy : MonoBehaviour
         m_Health -= value;
 		if(m_Health <= 0)
 		{
-            m_EW.RemoveFromList(gameObject);
+			if(m_EW != null)
+			{
+				m_EW.RemoveFromList(gameObject);
+			}
 			Destroy(gameObject);
 		}
     }

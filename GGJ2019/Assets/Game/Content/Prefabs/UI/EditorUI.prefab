@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2731293226973470906}
   - component: {fileID: 2731293226973470907}
   m_Layer: 5
-  m_Name: Rake
+  m_Name: CeilingFan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2731293227042382162}
   - component: {fileID: 2731293227042382163}
   m_Layer: 5
-  m_Name: BoxingGlove
+  m_Name: Rake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,6 @@ RectTransform:
   m_LocalScale: {x: 0.71735764, y: 0.71735764, z: 0.71735764}
   m_Children:
   - {fileID: 2731293228807303087}
-  - {fileID: 2731293227135646872}
   m_Father: {fileID: 2731293227691778316}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -279,12 +278,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.76521, y: 0.5115046, z: 0.76521}
   m_Children: []
-  m_Father: {fileID: 2731293227042382156}
-  m_RootOrder: 1
+  m_Father: {fileID: 2731293228260517573}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000079622}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2731293227135646878
@@ -336,7 +335,7 @@ GameObject:
   - component: {fileID: 2731293227297489711}
   - component: {fileID: 2731293227297489704}
   m_Layer: 5
-  m_Name: ElectricalWireSelect
+  m_Name: BoxingGloveSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -354,7 +353,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2731293228260517573}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -674,7 +673,7 @@ GameObject:
   - component: {fileID: 2731293228260517579}
   - component: {fileID: 2731293228260517572}
   m_Layer: 5
-  m_Name: ElectricalWire
+  m_Name: BoxingGlove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -691,6 +690,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.71735764, y: 0.71735764, z: 0.71735764}
   m_Children:
+  - {fileID: 2731293227135646872}
   - {fileID: 2731293227297489705}
   m_Father: {fileID: 2731293227691778316}
   m_RootOrder: 4
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 2731293228267557369}
   - component: {fileID: 2731293228267557370}
   m_Layer: 5
-  m_Name: CelingFanSelect
+  m_Name: ElectricalWireSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 2731293228334090419}
   - component: {fileID: 2731293228334090412}
   m_Layer: 5
-  m_Name: CelingFan
+  m_Name: ElectricalWire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 2731293228589687886}
   - component: {fileID: 2731293228589687887}
   m_Layer: 5
-  m_Name: RakeSelect
+  m_Name: CeilingFanSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 2731293228807303085}
   - component: {fileID: 2731293228807303086}
   m_Layer: 5
-  m_Name: BoxingGloveSelect
+  m_Name: RakeSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

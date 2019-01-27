@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rake Trap Controller
+  m_Name: CeilingFan Trap Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: State
@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400002, guid: ea213f04b6ac4d24c99741a0238a93c3, type: 3}
+  m_Motion: {fileID: 7400000, guid: 2aa224da1fea4fe48acb9624cabbc30d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ea213f04b6ac4d24c99741a0238a93c3, type: 3}
+  m_Motion: {fileID: 7400002, guid: 2aa224da1fea4fe48acb9624cabbc30d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
