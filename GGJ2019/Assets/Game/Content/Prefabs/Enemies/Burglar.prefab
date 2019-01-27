@@ -16,6 +16,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &8536953085962554403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423549331549294436}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.86607426, y: 1.7934122, z: 0.56184626}
+  m_Center: {x: 0.015196055, y: 0.88100004, z: -0.0023611337}
 --- !u!114 &5482753855375324193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,24 +41,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8d7559ea9bc5b4eb29bd67a5003b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 0
-  m_RootTime: 0
-  m_KnockbackForce: 0
-  m_Health: 0
-  m_Spit: {fileID: 0}
---- !u!65 &8536953085962554403
-BoxCollider:
+  m_Speed: 5
+  m_RootTime: 3
+  m_KnockbackForce: 400
+  m_Health: 25
+  m_Spit: {fileID: 2822288313684786725, guid: 8ab96a9bbdba6f94695ded9112076cb3, type: 3}
+--- !u!195 &4243355458295281866
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6423549331549294436}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &6423549331549194318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55,7 +77,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100138, guid: c15c4bba2d45931419c6f0d3a3f0e848, type: 3}
       propertyPath: m_Name
-      value: Drunk Idle
+      value: Burglar
+      objectReference: {fileID: 0}
+    - target: {fileID: 100138, guid: c15c4bba2d45931419c6f0d3a3f0e848, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: c15c4bba2d45931419c6f0d3a3f0e848, type: 3}
       propertyPath: m_LocalPosition.x

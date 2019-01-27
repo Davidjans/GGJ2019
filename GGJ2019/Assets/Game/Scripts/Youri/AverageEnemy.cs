@@ -18,22 +18,6 @@ public class AverageEnemy : Enemy
         {
             Move();
         }
-        else if(m_IsRooted == true && m_IsStunned == false)
-        {
-            m_RootTimer += Time.deltaTime;
-            if(m_RootTimer >= m_RootTime)
-            {
-                m_IsRooted = false;
-            }
-        }
-        else if(m_IsRooted == false && m_IsStunned == true)
-        {
-            m_RootTimer += Time.deltaTime;
-            if(m_RootTimer >= 2)
-            {
-                m_IsStunned = false;
-            }
-        }
 
         if(m_PlayerWithinAttackDistance == true)
         {
@@ -51,9 +35,18 @@ public class AverageEnemy : Enemy
         m_AttackTimer += Time.deltaTime;
         if (m_AttackTimer >= 1)
         {
-            GameObject go = Instantiate(m_Spit, transform.position, Quaternion.identity);
-            Spit spit = go.GetComponent<Spit>();
-            spit.SetDirection(position - transform.position);
+            if (player)
+            {
+                GameObject go = Instantiate(m_Spit, transform.position, Quaternion.identity);
+                Spit spit = go.GetComponent<Spit>();
+                spit.SetDirection(position - transform.position);
+            }
+            else if (!player)
+            {
+                GameObject go = Instantiate(m_Spit, transform.position, Quaternion.identity);
+                Spit spit = go.GetComponent<Spit>();
+                spit.SetDirection(position - transform.position);
+            }
             m_AttackTimer = 0;
         }
     }

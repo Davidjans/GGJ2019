@@ -76,12 +76,12 @@ public class EnemyWave : MonoBehaviour
         Debug.Log(m_CurrentEnemy.Count);
     }
 
-    private void SpawnWave()
+    private void SpawnWave(int countOfEnemies)
     {        
-        if(m_Index <= m_CurrentEnemy.Count)
+        for(int i = 0; i < countOfEnemies; i++)
         {
-			int i = Random.Range(0, m_Spawnpoint.Count);
-            Vector3 spawnPoint = new Vector3(m_Spawnpoint[i].transform.position.x + Random.Range(-1, 1), m_Spawnpoint[i].transform.position.y, m_Spawnpoint[i].transform.position.z + Random.Range(-1, 1));
+			int random = Random.Range(0, m_Spawnpoint.Count);
+            Vector3 spawnPoint = new Vector3(m_Spawnpoint[random].transform.position.x + Random.Range(-10, 10), m_Spawnpoint[random].transform.position.y, m_Spawnpoint[random].transform.position.z + Random.Range(-10, 10));
             m_CurrentEnemy.Add(Instantiate<GameObject>(m_Enemys[m_Index], spawnPoint, Quaternion.identity));
             m_Index += 1;
 
@@ -136,91 +136,91 @@ public class EnemyWave : MonoBehaviour
         {
             case 1:
                 if(m_Enemys.Count == 0 && m_Enemys.Count <= 8)
-                    AddToWave(1, 7, 0);
-                for (int i = 0; i < 8; i++)
+                    AddToWave(1, 4, 0);
+                for (int i = 0; i < 5; i++)
                 {
                     
                     if (m_Timer >= m_TimeUntillSpawn)
                     {
-                        SpawnWave();
+                        SpawnWave(5);
                         m_Timer = 0;
                     }
                 }
                 break;
             case 2:
                 if (m_Enemys.Count == 0 && m_Enemys.Count <= 10)
-                    AddToWave(3, 6, 1);
-                for (int i = 0; i < 10; i++)
+                    AddToWave(2, 4, 1);
+                for (int i = 0; i < 7; i++)
                 {
                     
                     if (m_Timer >= m_TimeUntillSpawn)
                     {
-                        SpawnWave();
+                        SpawnWave(7);
                         m_Timer = 0;
                     }
                 }
                 break;
             case 3:
                 if (m_Enemys.Count == 0 && m_Enemys.Count <= 13)
-                    AddToWave(3, 8, 2);
-                for (int i = 0; i < 13; i++)
+                    AddToWave(1, 5, 2);
+                for (int i = 0; i < 8; i++)
                 {
                     
                     if (m_Timer >= m_TimeUntillSpawn)
                     {
-                        SpawnWave();
+                        SpawnWave(8);
                         m_Timer = 0;
                     }
                 }
                 break;
             case 4:
                 if (m_Enemys.Count == 0 && m_Enemys.Count <= 15)
-                    AddToWave(5, 6, 4);
-                for (int i = 0; i < 15; i++)
+                    AddToWave(3, 5, 2);
+                for (int i = 0; i < 10; i++)
                 {
                     
                     if (m_Timer >= m_TimeUntillSpawn)
                     {
-                        SpawnWave();
+                        SpawnWave(10);
                         m_Timer = 0;
                     }
                 }
                 break;
             case 5:
                 if (m_Enemys.Count == 0 && m_Enemys.Count <= 18)
-                    AddToWave(2, 15, 1);
+                    AddToWave(0, 8, 1);
                 for (int i = 0; i < 18; i++)
                 {
                     
                     if (m_Timer >= m_TimeUntillSpawn)
                     {
-                        SpawnWave();
+                        SpawnWave(9);
                         m_Timer = 0;
                     }
                 }
                 break;
             case 6:
                 if (m_Enemys.Count == 0 && m_Enemys.Count <= 16)
-                    AddToWave(3, 5, 8);
+                    AddToWave(2, 3, 4);
                 for (int i = 0; i < 16; i++)
                 {
                     
                     if (m_Timer >= m_TimeUntillSpawn)
                     {
-                        SpawnWave();
+                        SpawnWave(9);
                         m_Timer = 0;
                     }
                 }
                 break;
             case 7:
                 if (m_Enemys.Count == 0 && m_Enemys.Count <= 30)
-                    AddToWave(10, 10, 10);
-                for (int i = 0; i < 30; i++)
+                    AddToWave(4, 4, 4);
+                for (int i = 0; i < 12; i++)
                 {
                     
                     if (m_Timer >= m_TimeUntillSpawn)
                     {
-                        SpawnWave();
+                        SpawnWave(12);
                         m_Timer = 0;
                     }
                 }

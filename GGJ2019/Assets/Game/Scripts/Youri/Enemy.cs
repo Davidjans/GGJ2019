@@ -7,6 +7,7 @@ public enum EnemyState
 {
     Walking,
     Attacking,
+    Stunned,
     Dying
 };
 
@@ -65,6 +66,16 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
+        if(m_EnemyState == EnemyState.Stunned)
+        {
+            m_RootTimer += Time.deltaTime;
+            if (m_RootTimer >= m_RootTime)
+            {
+                m_IsRooted = false;
+                m_RootTimer = 0;
+            }
+        }
+
         m_Animator.SetInteger("EnemyState", (int)m_EnemyState);
     }
 
@@ -80,12 +91,20 @@ public class Enemy : MonoBehaviour
         if (PlayerInVision())
         {
             m_NMA.destination = m_Player.transform.position;
-            transform.LookAt(m_Player.transform.position);
+
+            Vector3 targetDir = m_Player.transform.position - transform.position;
+            float step = 20 * Time.deltaTime;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDir);
         }
         else
         {
             m_NMA.destination = m_Goal;
-            transform.LookAt(m_Goal);
+
+            Vector3 targetDir = m_Goal - transform.position;
+            float step = 20 * Time.deltaTime;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDir);
         }
     }
 
@@ -111,7 +130,7 @@ public class Enemy : MonoBehaviour
             if (Physics.Raycast(transform.position, rayDirection, out hit, 10f))
             {
                 Debug.DrawRay(transform.position, rayDirection, Color.red);
-                if (Vector3.Distance(transform.position, hit.transform.position) < 10f)
+                if (Vector3.Distance(transform.position, hit.transform.position) < 20f)
                 {
                     if(hit.collider.tag == "Player")
                     {
@@ -144,11 +163,13 @@ public class Enemy : MonoBehaviour
 
     public void RootEnemy()
     {
+        m_EnemyState = EnemyState.Stunned;
         m_IsRooted = true;
     }
 
     public void StunEnemy()
     {
+        m_EnemyState = EnemyState.Stunned;
         m_IsStunned = true;
     }
 

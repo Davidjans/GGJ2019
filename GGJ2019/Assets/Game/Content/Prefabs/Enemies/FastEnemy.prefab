@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &920877876156833387
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2365213257783224423}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1610664933267238449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29,6 +16,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &920877876156833387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365213257783224423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.700958, y: 1.3380356, z: 0.6353402}
+  m_Center: {x: -0.018918931, y: 0.7090969, z: 0.07777047}
 --- !u!114 &3425475366092002158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,10 +41,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3231dc94b87e5a3489e03f429331ad3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 0
-  m_RootTime: 0
-  m_KnockbackForce: 0
-  m_Health: 0
+  m_Speed: 8
+  m_RootTime: 4
+  m_KnockbackForce: 600
+  m_Health: 10
+--- !u!195 &4858007225864983856
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365213257783224423}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &2365213257783258821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54,7 +76,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 449312564652399479a78447d6e36819, type: 3}
       propertyPath: m_Name
-      value: Drunk Idle
+      value: FastEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 449312564652399479a78447d6e36819, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 449312564652399479a78447d6e36819, type: 3}
       propertyPath: m_LocalPosition.x
