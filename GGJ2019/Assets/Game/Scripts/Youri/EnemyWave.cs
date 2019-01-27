@@ -73,7 +73,7 @@ public class EnemyWave : MonoBehaviour
         if(m_Index <= m_CurrentEnemy.Count)
         {
 			int i = Random.Range(0, m_Spawnpoint.Count);
-            Vector3 spawnPoint = new Vector3(m_Spawnpoint[i].transform.position.x + Random.Range(-10, 10), m_Spawnpoint[i].transform.position.y, m_Spawnpoint[i].transform.position.z + Random.Range(-10, 10));
+            Vector3 spawnPoint = new Vector3(m_Spawnpoint[i].transform.position.x + Random.Range(-1, 1), m_Spawnpoint[i].transform.position.y, m_Spawnpoint[i].transform.position.z + Random.Range(-1, 1));
             m_CurrentEnemy.Add(Instantiate<GameObject>(m_Enemys[m_Index], spawnPoint, Quaternion.identity));
             m_Index += 1;
 

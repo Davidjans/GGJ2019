@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerState
 {
@@ -55,7 +56,7 @@ public class PlayerManager : MonoBehaviour
         m_Health -= value;
 		if(m_Health <= 0)
 		{
-			Destroy(gameObject);
+			SceneManager.LoadScene("YouDown");
 		}
     }
 
